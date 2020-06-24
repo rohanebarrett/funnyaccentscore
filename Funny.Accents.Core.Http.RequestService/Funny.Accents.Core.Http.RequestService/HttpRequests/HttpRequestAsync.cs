@@ -11,13 +11,15 @@ namespace Funny.Accents.Core.Http.RequestService.HttpRequests
 {
     public static class HttpRequestAsync
     {
-        public static async Task<T> Get<T>(
-            string apiUrlParam, string proxyUrlParam = null, HttpRequestHeaderHelper headerParam = null
-            , Func<HttpStatusCode, List<HttpStatusCode>, bool> responseCondition = null
-            , List<HttpStatusCode> validStatusCodes = null
-            , SerializationFormat serializationFormat = SerializationFormat.None
-            , TimeSpan? timeout = null
-            , Action applyServicePointManager = null)
+        public static async Task<T> GetAsync<T>(
+            string apiUrlParam,
+            string proxyUrlParam = null,
+            HttpRequestHeaderHelper headerParam = null,
+            Func<HttpStatusCode, List<HttpStatusCode>, bool> responseCondition = null,
+            List<HttpStatusCode> validStatusCodes = null,
+            SerializationFormat serializationFormat = SerializationFormat.None,
+            TimeSpan? timeout = null,
+            Action applyServicePointManager = null)
             where T : class, IHttpResult, new()
         {
             applyServicePointManager?.Invoke();
@@ -60,7 +62,7 @@ namespace Funny.Accents.Core.Http.RequestService.HttpRequests
             }
         }/*End of Get method*/
 
-        public static async Task<T> GetWithHttpClient<T>(
+        public static async Task<T> GetWithHttpClientAsync<T>(
             string apiUrlParam
             , Func<HttpStatusCode, List<HttpStatusCode>, bool> responseCondition = null
             , List<HttpStatusCode> validStatusCodes = null
@@ -71,7 +73,7 @@ namespace Funny.Accents.Core.Http.RequestService.HttpRequests
         {
             applyServicePointManager?.Invoke();
 
-            if (httpClient == null){return default(T);}
+            if (httpClient == null) { return default(T); }
 
             var url = apiUrlParam ?? "";
 
@@ -87,17 +89,21 @@ namespace Funny.Accents.Core.Http.RequestService.HttpRequests
             };
         }/*End of GetWithHttpClient method*/
 
-        public static async Task<T> PostAsync<T>(string apiUrlParam
-            , string contentBodyParam, string contentTypeParam, Encoding encodingParam
-            , string proxyUrlParam = null, HttpRequestHeaderHelper headerParam = null
-            , Func<HttpStatusCode, List<HttpStatusCode>, bool> responseCondition = null
-            , List<HttpStatusCode> validStatusCodes = null
-            , SerializationFormat serializationFormat = SerializationFormat.None
-            , TimeSpan? timeout = null
-            , Action applyServicePointManager = null)
+        public static async Task<T> PostAsync<T>(string apiUrlParam,
+            string contentBodyParam = "",
+            string contentTypeParam = "application/json",
+            Encoding encodingParam = null,
+            string proxyUrlParam = null,
+            HttpRequestHeaderHelper headerParam = null,
+            Func<HttpStatusCode, List<HttpStatusCode>, bool> responseCondition = null,
+            List<HttpStatusCode> validStatusCodes = null,
+            SerializationFormat serializationFormat = SerializationFormat.None,
+            TimeSpan? timeout = null,
+            Action applyServicePointManager = null)
             where T : class, IHttpResult, new()
         {
             applyServicePointManager?.Invoke();
+            encodingParam = encodingParam ?? Encoding.UTF8;
 
             var handler = new HttpClientHandler();
             if (string.IsNullOrWhiteSpace(proxyUrlParam) == false)
@@ -123,7 +129,7 @@ namespace Funny.Accents.Core.Http.RequestService.HttpRequests
                 }
 
                 /*Add content into the request body and post the request*/
-                var content = new StringContent(contentBodyParam, encodingParam, contentTypeParam);
+                var content = new StringContent(contentBodyParam, encodingParam, contentTypeParam ?? "application/json");
                 var response = await client.PostAsync(url, content);
 
                 /*Deserialize response to HttpResults object and return to the calling application*/
@@ -246,17 +252,21 @@ namespace Funny.Accents.Core.Http.RequestService.HttpRequests
             };
         }/*End of PutWithHttpClient method*/
 
-        public static async Task<T> Patch<T>(string apiUrlParam
-            , string contentBodyParam, string contentTypeParam, Encoding encodingParam
-            , string proxyUrlParam = null, HttpRequestHeaderHelper headerParam = null
-            , Func<HttpStatusCode, List<HttpStatusCode>, bool> responseCondition = null
-            , List<HttpStatusCode> validStatusCodes = null
-            , SerializationFormat serializationFormat = SerializationFormat.None
-            , TimeSpan? timeout = null
-            , Action applyServicePointManager = null)
+        public static async Task<T> PatchAsync<T>(string apiUrlParam,
+            string contentBodyParam = "",
+            string contentTypeParam = "application/json",
+            Encoding encodingParam = null,
+            string proxyUrlParam = null,
+            HttpRequestHeaderHelper headerParam = null,
+            Func<HttpStatusCode, List<HttpStatusCode>, bool> responseCondition = null,
+            List<HttpStatusCode> validStatusCodes = null,
+            SerializationFormat serializationFormat = SerializationFormat.None,
+            TimeSpan? timeout = null,
+            Action applyServicePointManager = null)
             where T : class, IHttpResult, new()
         {
             applyServicePointManager?.Invoke();
+            encodingParam = encodingParam ?? Encoding.UTF8;
 
             var handler = new HttpClientHandler();
             if (string.IsNullOrWhiteSpace(proxyUrlParam) == false)
@@ -291,7 +301,6 @@ namespace Funny.Accents.Core.Http.RequestService.HttpRequests
                 };
                 var response = await client.SendAsync(request);
 
-
                 /*Deserialize response to HttpResults object and return to the calling application*/
                 return new T
                 {
@@ -303,7 +312,7 @@ namespace Funny.Accents.Core.Http.RequestService.HttpRequests
             }
         }/*End of PostAsync method*/
 
-        public static async Task<T> PatchWithHttpClient<T>(string apiUrlParam
+        public static async Task<T> PatchWithHttpClientAsync<T>(string apiUrlParam
             , string contentBodyParam, string contentTypeParam, Encoding encodingParam
             , Func<HttpStatusCode, List<HttpStatusCode>, bool> responseCondition = null
             , List<HttpStatusCode> validStatusCodes = null
@@ -338,13 +347,15 @@ namespace Funny.Accents.Core.Http.RequestService.HttpRequests
             };
         }/*End of PostAsync method*/
 
-        public static async Task<T> Delete<T>(
-            string apiUrlParam, string proxyUrlParam = null, HttpRequestHeaderHelper headerParam = null
-            , Func<HttpStatusCode, List<HttpStatusCode>, bool> responseCondition = null
-            , List<HttpStatusCode> validStatusCodes = null
-            , SerializationFormat serializationFormat = SerializationFormat.None
-            , TimeSpan? timeout = null
-            , Action applyServicePointManager = null)
+        public static async Task<T> DeleteAsync<T>(
+            string apiUrlParam,
+            string proxyUrlParam = null,
+            HttpRequestHeaderHelper headerParam = null,
+            Func<HttpStatusCode, List<HttpStatusCode>, bool> responseCondition = null,
+            List<HttpStatusCode> validStatusCodes = null,
+            SerializationFormat serializationFormat = SerializationFormat.None,
+            TimeSpan? timeout = null,
+            Action applyServicePointManager = null)
             where T : class, IHttpResult, new()
         {
             applyServicePointManager?.Invoke();
@@ -413,4 +424,4 @@ namespace Funny.Accents.Core.Http.RequestService.HttpRequests
             };
         }/*End of DeleteWithHttpClient method*/
     }/*End of AsyncHttpRequest class*/
-}/*End of Funny.Accents.Core.Http.RequestService.HttpRequests namespace*/
+}/*End of HttpRequestManager.HttpRequests namespace*/

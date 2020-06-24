@@ -53,6 +53,14 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Funny.Accents.Core.Encrypti
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Funny.Accents.Core.Http.RequestService", "Funny.Accents.Core.Http.RequestService\Funny.Accents.Core.Http.RequestService\Funny.Accents.Core.Http.RequestService.csproj", "{3021047F-F293-4AD7-AD72-39F2B105DA65}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Funny.Accents.Core.Types.Constant", "Funny.Accents.Core.Types.Constant\Funny.Accents.Core.Types.Constant.csproj", "{CDC40050-AD1D-4170-9B97-924499A584BB}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Funny.Accents.Core.Types.Enumeration", "Funny.Accents.Core.Types.Enumeration\Funny.Accents.Core.Types.Enumeration.csproj", "{4DB51496-9ECF-43EA-9080-5E9369F61C40}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Funny.Accents.Core.Types.Interface", "Funny.Accents.Core.Types.Interface\Funny.Accents.Core.Types.Interface.csproj", "{C15FAE7F-978B-4060-AE5B-5926DBDB7370}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Funny.Accents.Core.Types.Provider", "Funny.Accents.Core.Types.Provider\Funny.Accents.Core.Types.Provider.csproj", "{CC0CA087-FB77-41B0-91E8-B2644DE3466D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -159,6 +167,22 @@ Global
 		{3021047F-F293-4AD7-AD72-39F2B105DA65}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3021047F-F293-4AD7-AD72-39F2B105DA65}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3021047F-F293-4AD7-AD72-39F2B105DA65}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CDC40050-AD1D-4170-9B97-924499A584BB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CDC40050-AD1D-4170-9B97-924499A584BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CDC40050-AD1D-4170-9B97-924499A584BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CDC40050-AD1D-4170-9B97-924499A584BB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4DB51496-9ECF-43EA-9080-5E9369F61C40}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4DB51496-9ECF-43EA-9080-5E9369F61C40}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4DB51496-9ECF-43EA-9080-5E9369F61C40}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4DB51496-9ECF-43EA-9080-5E9369F61C40}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C15FAE7F-978B-4060-AE5B-5926DBDB7370}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C15FAE7F-978B-4060-AE5B-5926DBDB7370}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C15FAE7F-978B-4060-AE5B-5926DBDB7370}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C15FAE7F-978B-4060-AE5B-5926DBDB7370}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CC0CA087-FB77-41B0-91E8-B2644DE3466D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CC0CA087-FB77-41B0-91E8-B2644DE3466D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CC0CA087-FB77-41B0-91E8-B2644DE3466D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CC0CA087-FB77-41B0-91E8-B2644DE3466D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
